@@ -21,7 +21,7 @@ void setup (){
 void loop (){
   valX = analogRead(analogX);
   Serial.println(valX);
-  valX = map(valX, 0, 1023, 180, 0); //magic function to map values
+  valX = map(valX, 0.00, 1023.00, 180.00, 0.00); //magic function to map values
   Serial.println(valX);              //https://www.arduino.cc/en/Reference/Map
   servo1.write(valX);
   delay(50);
@@ -33,3 +33,12 @@ void loop (){
   delay(50);
 }
 
+
+/*
+double modifiedMap(double x, double in_min, double in_max, double out_min, double out_max)
+{
+ double temp = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+ temp = (int) (4*temp + .5);
+ return (double) temp/4;
+}
+*/
